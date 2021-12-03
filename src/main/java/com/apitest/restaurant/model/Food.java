@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.*;
 
 @Getter
 @NoArgsConstructor
@@ -29,11 +28,5 @@ public class Food {
         this.restaurantId = restaurantId;
         this.name = name;
         this.price = price;
-    }
-
-    public Food(Long restaurantId, FoodDto requestDto){
-        this.restaurantId = restaurantId;
-        this.name = requestDto.getName();
-        this.price = requestDto.getPrice();
     }
 }
