@@ -1,7 +1,5 @@
 package com.apitest.restaurant.model;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Builder;
@@ -17,10 +15,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class FoodTest {
+class FoodIntegrationTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
@@ -212,7 +212,7 @@ class FoodTest {
         @Test
         @Order(1)
         @DisplayName("음식 1개 등록")
-        void test1() throws JsonProcessingException {
+         void test1() throws JsonProcessingException {
             // given
             List<FoodDto> foodsRequest = new ArrayList<>();
             // 음식1 추가
@@ -315,6 +315,7 @@ class FoodTest {
             // 음식점1에 등록되어 있는 음식1 을 음식점2에 추가
             foodsRequest.add(food1);
 
+
             String foodRequestBody = mapper.writeValueAsString(foodsRequest);
             HttpEntity<String> foodRequest = new HttpEntity<>(foodRequestBody, headers);
 
@@ -347,6 +348,7 @@ class FoodTest {
                             .build()
             );
 
+
             String requestBody = mapper.writeValueAsString(foodsRequest);
             HttpEntity<String> request = new HttpEntity<>(requestBody, headers);
 
@@ -378,6 +380,7 @@ class FoodTest {
                             .build()
             );
 
+
             String requestBody = mapper.writeValueAsString(foodsRequest);
             HttpEntity<String> request = new HttpEntity<>(requestBody, headers);
 
@@ -408,6 +411,7 @@ class FoodTest {
                             .price(770)
                             .build()
             );
+
 
             String requestBody = mapper.writeValueAsString(foodsRequest);
             HttpEntity<String> request = new HttpEntity<>(requestBody, headers);
