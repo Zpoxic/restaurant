@@ -9,4 +9,5 @@ import java.util.*;
 @Repository
 public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
     List<Restaurant> findAll();
+    List<Restaurant> findAllById(Long id);
 }

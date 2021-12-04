@@ -20,10 +20,12 @@ public class FoodService {
     public void createFood(Long restaurantId, List<FoodDto> requestDto){
         int count = 0;
         for(FoodDto check : requestDto ){
-            System.out.println(count);
-            System.out.println(requestDto.get(count).getName());
+//          //확인용 코드
+//          System.out.println(count);
+//          System.out.println(requestDto.get(count).getName());
+//          System.out.println(requestDto.get(count).getPrice());
+
             String nameCheck = requestDto.get(count).getName();
-            System.out.println(requestDto.get(count).getPrice());
             int priceCheck = requestDto.get(count).getPrice();
 
             Food foods = new Food(restaurantId, nameCheck, priceCheck);
@@ -37,7 +39,6 @@ public class FoodService {
             if(priceCheck<100 || priceCheck>1000000 || priceCheck%100!=0) {
                 throw new IllegalArgumentException("음식 가격이 잘못되었습니다.(100원 이상, 1000000원 이하, 100원 단위로 변경");
             }
-
             FoodRepository.save(foods);
 
             count++;

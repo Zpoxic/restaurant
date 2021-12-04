@@ -1,6 +1,5 @@
 package com.apitest.restaurant.model;
 
-import com.apitest.restaurant.dto.FoodDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -10,8 +9,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 public class Food {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
@@ -22,7 +21,6 @@ public class Food {
 
     @Column(nullable = false)
     private Long restaurantId;
-
 
     public Food(Long restaurantId, String name, int price){
         this.restaurantId = restaurantId;
